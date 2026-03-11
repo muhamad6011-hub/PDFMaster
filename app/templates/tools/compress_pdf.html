@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="max-w-xl mx-auto">
+
+    <h2 class="text-2xl font-bold mb-6 text-center">
+        Compress PDF
+    </h2>
+
+    <form action="/tools/compress-pdf"
+          method="post"
+          enctype="multipart/form-data"
+          class="bg-white p-6 rounded-xl shadow space-y-4">
+
+        <!-- Upload File -->
+        <div>
+            <label class="block mb-2 font-semibold">
+                Upload PDF
+            </label>
+
+            <input type="file"
+                   name="file"
+                   accept=".pdf"
+                   required
+                   class="w-full border p-2 rounded">
+        </div>
+
+        <!-- Target Size -->
+        <div>
+            <label class="block mb-2 font-semibold">
+                Select Target Size (KB)
+            </label>
+
+            <select name="target_size"
+                    required
+                    class="w-full border p-2 rounded">
+                <option value="100">100 KB (Maximum Compress)</option>
+                <option value="200">200 KB</option>
+                <option value="300">300 KB</option>
+                <option value="400">400 KB</option>
+                <option value="500" selected>500 KB (Recommended)</option>
+            </select>
+        </div>
+
+        <!-- Info -->
+        <p class="text-sm text-gray-500">
+            File akan dikompres hingga mendekati ukuran yang dipilih.
+        </p>
+
+        <!-- Button -->
+        <button type="submit"
+                class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded w-full transition">
+            Compress Now
+        </button>
+
+    </form>
+
+</div>
+
+{% endblock %}

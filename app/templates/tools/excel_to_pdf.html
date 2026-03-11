@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+
+{% block title %}Excel to PDF Converter{% endblock %}
+
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-6">Excel to PDF</h1>
+
+<p class="mb-6 text-gray-600">
+Convert Excel spreadsheets to PDF online.
+</p>
+
+<div class="bg-white p-6 rounded-lg shadow">
+
+<form action="/tools/excel-to-pdf" method="post" enctype="multipart/form-data">
+
+<input type="file" name="file" accept=".xls,.xlsx"
+class="mb-4 block w-full">
+
+<button class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700">
+Convert to PDF
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Virtual Environment
+venv/
+env/
+.venv/
+
+# Environment variables
+.env
+
+# Database
+*.db
+*.sqlite3
+
+# Upload files
+uploads/
+outputs/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# IDE
+.vscode/
+.idea/
+
+# Cache
+.cache/
+
+# Temporary files
+*.tmp
+*.temp

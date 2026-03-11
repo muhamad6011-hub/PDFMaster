@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="max-w-3xl mx-auto py-12">
+
+    <h1 class="text-4xl font-bold mb-6">
+        {{ post.title }}
+    </h1>
+
+    <div class="text-gray-700 leading-relaxed text-lg">
+        {{ post.content }}
+    </div>
+
+</div>
+{% endblock %}

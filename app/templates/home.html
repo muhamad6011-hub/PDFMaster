@@ -1,0 +1,113 @@
+{% extends "base.html" %}
+{% block title %}Home - PDFMaster{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="text-center py-16">
+
+    <h1 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight">
+        All-in-One PDF Tools
+    </h1>
+
+    <p class="text-gray-500 mt-4 text-lg max-w-2xl mx-auto">
+        Convert, compress, merge, and edit PDF files easily and securely.
+        Fast, simple, and free.
+    </p>
+
+    <div class="mt-8 flex justify-center gap-4">
+
+        <a href="/dashboard"
+           class="bg-red-600 text-white px-6 py-3 rounded-lg hover:bg-red-700 transition font-semibold shadow-md">
+            Get Started
+        </a>
+
+        <a href="/register"
+           class="bg-gray-100 px-6 py-3 rounded-lg hover:bg-gray-200 transition font-semibold">
+            Create Account
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- FEATURE TOOLS -->
+<section class="mt-20">
+
+    <h2 class="text-2xl font-bold text-center mb-10 text-gray-800">
+        Popular Tools
+    </h2>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <a href="/word-to-pdf"
+           class="group bg-white p-6 shadow-md hover:shadow-xl rounded-xl transition duration-300 border hover:border-red-500">
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-red-600 transition">
+                Word to PDF
+            </h3>
+            <p class="text-gray-500 text-sm">
+                Convert DOCX files into PDF format instantly.
+            </p>
+        </a>
+
+        <a href="/pdf-to-word"
+           class="group bg-white p-6 shadow-md hover:shadow-xl rounded-xl transition duration-300 border hover:border-red-500">
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-red-600 transition">
+                PDF to Word
+            </h3>
+            <p class="text-gray-500 text-sm">
+                Turn PDFs into editable Word documents.
+            </p>
+        </a>
+
+        <a href="/compress-pdf"
+           class="group bg-white p-6 shadow-md hover:shadow-xl rounded-xl transition duration-300 border hover:border-red-500">
+            <h3 class="text-lg font-semibold mb-2 group-hover:text-red-600 transition">
+                Compress PDF
+            </h3>
+            <p class="text-gray-500 text-sm">
+                Reduce PDF size without losing quality.
+            </p>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- WHY CHOOSE US -->
+<section class="mt-24 text-center">
+
+    <h2 class="text-2xl font-bold mb-6 text-gray-800">
+        Why Choose PDFMaster?
+    </h2>
+
+    <div class="grid md:grid-cols-3 gap-8 mt-8">
+
+        <div class="bg-white p-6 shadow rounded-xl">
+            <h4 class="font-semibold mb-2">Fast Processing</h4>
+            <p class="text-gray-500 text-sm">
+                Your files are processed instantly with optimized performance.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 shadow rounded-xl">
+            <h4 class="font-semibold mb-2">Secure & Private</h4>
+            <p class="text-gray-500 text-sm">
+                We respect your privacy. Files are automatically deleted.
+            </p>
+        </div>
+
+        <div class="bg-white p-6 shadow rounded-xl">
+            <h4 class="font-semibold mb-2">Easy to Use</h4>
+            <p class="text-gray-500 text-sm">
+                Simple interface, no technical knowledge required.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

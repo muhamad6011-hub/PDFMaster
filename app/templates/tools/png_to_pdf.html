@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}PNG to PDF Converter{% endblock %}
+
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-6">PNG to PDF Converter</h1>
+
+<p class="mb-6 text-gray-600">
+Convert PNG images into a single PDF file quickly and easily.
+</p>
+
+<div class="bg-white p-6 rounded-lg shadow">
+
+<form action="/tools/png-to-pdf" method="post" enctype="multipart/form-data">
+
+<input 
+type="file" 
+name="file" 
+accept="image/png"
+required
+class="mb-4 block w-full border p-2 rounded">
+
+<button 
+type="submit"
+class="bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700">
+Convert to PDF
+</button>
+
+</form>
+
+</div>
+
+{% endblock %}

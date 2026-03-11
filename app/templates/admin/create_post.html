@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% block title %}Create Blog Post{% endblock %}
+
+{% block content %}
+
+<h1 class="text-3xl font-bold mb-6">
+Create Blog Post
+</h1>
+
+<form action="/admin/create-post" method="post" class="space-y-6">
+
+<!-- TITLE -->
+<div>
+<label class="block mb-2 font-semibold">Title</label>
+<input
+    id="title"
+    type="text"
+    name="title"
+    placeholder="Post title"
+    class="w-full border p-3 rounded"
+    required
+>
+</div>
+
+<!-- SLUG -->
+<div>
+<label class="block mb-2 font-semibold">Slug</label>
+<input
+    id="slug"
+    type="text"
+    name="slug"
+    placeholder="post-url-slug"
+    class="w-full border p-3 rounded"
+    required
+>
+
+<p class="text-sm text-gray-500 mt-1">
+URL: /blog/<span id="slug-preview">post-url-slug</span>
+</p>
+</div>
+
+<!-- CONTENT -->
+<div>
+<label class="block mb-2 font-semibold">Content</label>
+
+<textarea
+    name="content"
+    placeholder="Write your article here..."
+    class="w-full border p-3 rounded h-96"
+    required
+></textarea>
+</div>
+
+<button
+    type="submit"
+    class="bg-red-600 text-white px-6 py-3 rounded hover:bg-red-700"
+>
+Publish Post
+</button>
+
+</form>
+
+<!-- AUTO SLUG SCRIPT -->
+<script>
+
+const titleInput = document.getElementById("title");
+const slugInput = document.getElementById("slug");
+const slugPreview = document.getElementById("slug-preview");
+
+titleInput.addEventListener("input", function(){
+
+let slug = titleInput.value
+.toLowerCase()
+.replace(/[^a-z0-9\s-]/g, "")
+.replace(/\s+/g, "-")
+.replace(/-+/g, "-");
+
+slugInput.value = slug;
+slugPreview.textContent = slug;
+
+});
+
+slugInput.addEventListener("input", function(){
+slugPreview.textContent = slugInput.value;
+});
+
+</script>
+
+{% endblock %}

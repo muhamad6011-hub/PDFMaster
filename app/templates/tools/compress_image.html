@@ -1,0 +1,99 @@
+{% extends "base.html" %}
+
+{% block title %}Compress JPG & PNG Images{% endblock %}
+
+{% block content %}
+
+<div class="max-w-3xl mx-auto">
+
+<!-- HEADER -->
+<div class="text-center mb-10">
+
+<h1 class="text-4xl font-bold text-gray-800 mb-3">
+Compress JPG & PNG Images
+</h1>
+
+<p class="text-gray-500 text-lg">
+Reduce image size while keeping the best possible quality.
+Fast, free, and secure.
+</p>
+
+</div>
+
+
+<!-- TOOL CARD -->
+<div class="bg-white p-8 rounded-2xl shadow-lg border">
+
+<form action="/tools/compress-image" method="post" enctype="multipart/form-data">
+
+<!-- UPLOAD -->
+<label class="block mb-3 font-semibold text-gray-700">
+Upload Image
+</label>
+
+<div class="border-2 border-dashed border-gray-300 rounded-xl p-8 text-center hover:border-red-500 transition">
+
+<input 
+type="file"
+name="file"
+accept=".jpg,.jpeg,.png"
+required
+class="mx-auto mb-4">
+
+<p class="text-gray-500 text-sm">
+Supported formats: JPG, JPEG, PNG
+</p>
+
+</div>
+
+
+<!-- QUALITY -->
+<div class="mt-6">
+
+<label class="block mb-2 font-semibold text-gray-700">
+Compression Level
+</label>
+
+<select 
+name="quality"
+class="w-full border rounded-lg p-3 focus:ring-2 focus:ring-red-500">
+
+<option value="90">High Quality (Larger File)</option>
+<option value="70">Balanced (Recommended)</option>
+<option value="50">Small Size</option>
+
+</select>
+
+</div>
+
+
+<!-- BUTTON -->
+<div class="mt-8 text-center">
+
+<button 
+type="submit"
+class="bg-red-600 text-white px-8 py-3 rounded-xl font-semibold text-lg hover:bg-red-700 transition shadow-md">
+
+Compress Image
+
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+
+<!-- INFO SECTION -->
+<div class="mt-10 text-center text-gray-500 text-sm">
+
+<p>
+Your files are processed securely and deleted automatically after compression.
+</p>
+
+</div>
+
+</div>
+
+{% endblock %}
