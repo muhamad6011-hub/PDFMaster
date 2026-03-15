@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Compress PDF - PDFMaster</title>
+
+<script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body class="bg-gray-50">
+
+
+<!-- NAVBAR -->
+
+<header class="bg-white shadow-sm">
+
+<div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+
+<a href="../index.html" class="text-2xl font-bold text-red-600">
+PDFMaster
+</a>
+
+<nav class="flex items-center space-x-6 text-sm font-medium">
+
+<a href="../blog.html" class="hover:text-red-600">Blog</a>
+<a href="../login.html" class="hover:text-red-600">Login</a>
+
+</nav>
+
+</div>
+
+</header>
+
+
+
+<main class="py-10">
+
+<div class="max-w-xl mx-auto px-6">
+
+<h2 class="text-2xl font-bold mb-6 text-center">
+Compress PDF
+</h2>
+
+
+<form id="compressForm"
+class="bg-white p-6 rounded-xl shadow space-y-4">
+
+
+<!-- Upload -->
+
+<div>
+
+<label class="block mb-2 font-semibold">
+Upload PDF
+</label>
+
+<input
+type="file"
+id="file"
+accept=".pdf"
+required
+class="w-full border p-2 rounded">
+
+</div>
+
+
+<!-- Target Size -->
+
+<div>
+
+<label class="block mb-2 font-semibold">
+Select Target Size (KB)
+</label>
+
+<select
+id="target_size"
+class="w-full border p-2 rounded">
+
+<option value="100">100 KB (Maximum Compress)</option>
+<option value="200">200 KB</option>
+<option value="300">300 KB</option>
+<option value="400">400 KB</option>
+<option value="500" selected>500 KB (Recommended)</option>
+
+</select>
+
+</div>
+
+
+<p class="text-sm text-gray-500">
+File akan dikompres hingga mendekati ukuran yang dipilih.
+</p>
+
+
+<button
+type="submit"
+class="bg-red-600 hover:bg-red-700 text-white px-4 py-2 rounded w-full">
+
+Compress Now
+
+</button>
+
+</form>
+
+
+<!-- RESULT -->
+
+<div id="result" class="hidden text-center mt-6">
+
+<a id="download"
+class="bg-green-600 text-white px-6 py-3 rounded-lg">
+
+Download Compressed PDF
+
+</a>
+
+</div>
+
+</div>
+
+</main>
+
+
+
+<script>
+
+const form = document.getElementById("compressForm")
+
+form.addEventListener("submit", async (e)=>{
+
+e.preventDefault()
+
+const file = document.getElementById("file").files[0]
+const targetSize = document.getElementById("target_size").value
+
+const formData = new FormData()
+
+formData.append("file", file)
+formData.append("target_size", targetSize)
+
+const res = await fetch("https://api.pdfmaster.com/tools/compress-pdf",{
+method:"POST",
+body:formData
+})
+
+if(res.ok){
+
+const blob = await res.blob()
+
+const url = window.URL.createObjectURL(blob)
+
+const download = document.getElementById("download")
+
+download.href = url
+download.download = "compressed.pdf"
+
+document.getElementById("result").classList.remove("hidden")
+
+}else{
+
+alert("Compression failed")
+
+}
+
+})
+
+</script>
+
+
+</body>
+</html>
